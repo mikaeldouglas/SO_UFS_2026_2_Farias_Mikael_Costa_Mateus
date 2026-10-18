@@ -1,0 +1,352 @@
+## data/hora: 2026-10-18T01:33:44-03:00
+## commit: sem git
+
+### uname -a
+Linux MATEUS 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
+
+### cat /etc/os-release
+PRETTY_NAME="Ubuntu 26.04 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04 (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+
+### lscpu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  8
+On-line CPU(s) list:                     0-7
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz
+CPU family:                              6
+Model:                                   79
+Thread(s) per core:                      2
+Core(s) per socket:                      4
+Socket(s):                               1
+Stepping:                                1
+BogoMIPS:                                4788.90
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm arch_perfmon rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp tpr_shadow ept vpid ept_ad fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt vnmi md_clear flush_l1d arch_capabilities
+Virtualization:                          VT-x
+Hypervisor vendor:                       Microsoft
+Virtualization type:                     full
+L1d cache:                               128 KiB (4 instances)
+L1i cache:                               128 KiB (4 instances)
+L2 cache:                                1 MiB (4 instances)
+L3 cache:                                35 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-7
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks
+Vulnerability Itlb multihit:             KVM: Mitigation: Split huge pages
+Vulnerability L1tf:                      Mitigation; PTE Inversion; VMX conditional cache flushes, SMT vulnerable
+Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT Host state unknown
+Vulnerability Old microcode:             Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Retpoline
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Mitigation; Clear CPU buffers; SMT Host state unknown
+Vulnerability Vmscape:                   Not affected
+
+### free -h
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.4Gi       104Mi       4.3Mi       2.5Gi       2.4Gi
+Swap:          4.0Gi       212Ki       4.0Gi
+
+### cat /proc/meminfo
+MemTotal:        4011704 kB
+MemFree:          105016 kB
+MemAvailable:    2563100 kB
+Buffers:           80916 kB
+Cached:          2463172 kB
+SwapCached:           32 kB
+Active:          1400544 kB
+Inactive:        2127904 kB
+Active(anon):       3968 kB
+Inactive(anon):   984848 kB
+Active(file):    1396576 kB
+Inactive(file):  1143056 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       4194304 kB
+SwapFree:        4194092 kB
+Dirty:               208 kB
+Writeback:             0 kB
+AnonPages:        984616 kB
+Mapped:           695044 kB
+Shmem:              4448 kB
+KReclaimable:      85340 kB
+Slab:             142836 kB
+SReclaimable:      85340 kB
+SUnreclaim:        57496 kB
+KernelStack:        6260 kB
+PageTables:        11728 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6200156 kB
+Committed_AS:    4180624 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       35304 kB
+VmallocChunk:          0 kB
+Percpu:             3968 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:      8192 kB
+FilePmdMapped:         0 kB
+Balloon:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:       66560 kB
+DirectMap2M:     3078144 kB
+DirectMap1G:     9437184 kB
+
+### lsblk
+NAME MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda    8:0    0 722.9M  1 disk 
+sdb    8:16   0    97M  1 disk /usr/lib/linux-tools/6.18.54.1-microsoft-standard-WSL2
+                               /usr/src/linux-headers-6.18.54.1-microsoft-standard-WSL2
+sdc    8:32   0     4G  0 disk [SWAP]
+sdd    8:48   0     1T  0 disk /var/lib/docker
+                               /mnt/wslg/distro
+                               /
+
+### df -hT .
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/sdd       ext4 1007G   38G  918G   4% /
+
+### swapon --show
+NAME     TYPE      SIZE USED PRIO
+/dev/sdc partition   4G 212K   -2
+
+### cat /proc/sys/vm/swappiness
+60
+
+### python3 --version
+Python 3.14.4
+
+### pip freeze
+attrs==25.4.0
+autocommand==2.2.2
+Automat==25.4.16
+babel==2.17.0
+bcrypt==5.0.0
+blinker==1.9.0
+certifi==2026.1.4
+chardet==5.2.0
+click==8.1.8
+command-not-found==0.3
+configobj==5.0.9
+constantly==23.10.4
+contourpy==1.4.0
+cryptography==46.0.5
+cycler==0.12.1
+dbus-python==1.4.0
+distro==1.9.0
+distro-info==1.15
+fonttools==4.65.0
+httplib2==0.22.0
+hyperlink==21.0.0
+idna==3.11
+incremental==24.7.2
+inflect==7.5.0
+jaraco.context==6.0.1
+jaraco.functools==4.1.0
+jaraco.text==4.0.0
+Jinja2==3.1.6
+jsonpatch==1.32
+jsonpointer==2.4
+jsonschema==4.19.2
+jsonschema-specifications==2023.12.1
+kiwisolver==1.5.1
+launchpadlib==2.1.0
+lazr.restfulclient==0.14.6
+lazr.uri==1.0.6
+libpass==1.9.3
+linkify-it-py==2.0.3
+markdown-it-py==3.0.0
+MarkupSafe==3.0.3
+matplotlib==3.11.2
+mdurl==0.1.2
+more-itertools==10.8.0
+netifaces==0.11.0
+numpy==2.5.3
+oauthlib==3.3.1
+packaging==26.0
+pandas==3.0.5
+pillow==12.3.0
+pyasn1==0.6.3
+pyasn1_modules==0.4.1
+pycurl==7.45.7
+Pygments==2.19.2
+PyGObject==3.56.2
+PyHamcrest==2.1.0
+PyJWT==2.10.1
+pyOpenSSL==25.3.0
+pyparsing==3.3.2
+pyserial==3.5
+python-apt==3.1.0+ubuntu1
+python-dateutil==2.9.0.post0
+PyYAML==6.0.3
+referencing==0.36.2
+requests==2.32.5
+rich==13.9.4
+rpds-py==0.27.1
+service-identity==24.2.0
+setuptools==78.1.1
+six==1.17.0
+systemd-python==235
+Twisted==25.5.0
+typeguard==4.4.4
+typing_extensions==4.15.0
+ubuntu-pro-client==8001
+uc-micro-py==1.0.3
+unattended-upgrades==0.1
+urllib3==2.6.3
+wadllib==2.0.0
+wheel==0.46.3
+zipp==3.23.0
+zope.interface==8.2
+
+### nvidia-smi -L
+GPU 0: NVIDIA GeForce RTX 3060 (UUID: GPU-891392f6-7ded-fff9-227e-cdd253c83b27)
+
+### systemd-detect-virt
+wsl
+
+### cat /proc/version
+Linux version 6.18.54.1-microsoft-standard-WSL2 (root@9b80f41eb17c) (gcc (GCC) 13.2.0, GNU ld (GNU Binutils) 2.41) #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026
+
+### cat /etc/wsl.conf
+[boot]
+systemd=true
+
+[user]
+default=mateus
+
+### wslinfo
+Usage:
+    --networking-mode
+       Display current networking mode.
+
+    --msal-proxy-path
+        Display the path to the MSAL proxy application.
+
+    --vm-id
+        Display the WSL VM ID.
+
+    --version
+        Display the version of the WSL package.
+
+    -n
+        Do not print a newline.
+(indisponivel)
+
+### wsl.exe --version | iconv -f utf-16le -t utf-8
+Versão do WSL: 3.0.3.0
+Versão do kernel: 6.18.54.1-1
+Versão do WSLg: 1.0.79
+Versão do MSRDC: 1.2.7391
+Versão do Direct3D: 1.611.1-81528511
+Versão do DXCore: 10.0.26100.1-240331-1435.ge-release
+Versão do Windows: 10.0.26100.9457
+
+### cat /proc/swaps
+Filename				Type		Size		Used		Priority
+/dev/sdc                                partition	4194304		212		-2
+
+### nproc
+8
+
+### nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv
+name, driver_version, memory.total [MiB]
+NVIDIA GeForce RTX 3060, 616.64, 12288 MiB
+
+### host Windows (CPU/RAM física)
+
+
+Name                      : Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz
+NumberOfCores             : 14
+NumberOfLogicalProcessors : 28
+
+
+
+31,9
+
+### .wslconfig
+# Máquina de testes: 32 GB RAM, Xeon E5-2680 v4 (28 threads), RTX 3060 12 GB
+# Copie para  C:\Users\<SEU_USUARIO>\.wslconfig   e depois, no PowerShell:  wsl --shutdown
+# --- Perfil NORMAL (C1-C4, C6, Parte D, C5 fase 1) ---
+[wsl2]
+memory=4GB
+processors=8
+swap=4GB
+
+[experimental]
+autoMemoryReclaim=disabled
+
+# --- Perfil RESTRITO (C5 fase 2, pressão de memória/swap): troque os valores acima por ---
+# memory=4GB
+# processors=8
+# swap=4GB
+# (sem large: memory=2GB e swap=2GB)
+
+### vmstat (5 amostras)
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 0  0    212  80516  83320 2560184    0    2 33912   211 2416    3  4  3 91  1  0  0
+ 0  0    212  72104  83320 2561084    0    0   820     0 2275 2963  2  2 94  2  0  0
+ 0  0    212  72104  83320 2561084    0    0     0     0  473  504  0  0 100  0  0  0
+ 0  0    212  72504  83320 2561084    0    0     0   260  522  480  0  0 100  0  0  0
+ 0  0    212  73268  83320 2561084    0    0     0     0  532  486  0  0 100  0  0  0
+
+### iostat (3 amostras)
+Linux 6.18.54.1-microsoft-standard-WSL2 (MATEUS) 	10/18/26 	_x86_64_	(8 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           4.07    0.00    3.33    1.44    0.00   91.16
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sda              6.89   1497.81     3.00  30.36    0.62   217.30    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.28
+sdb              0.80     44.18     0.72  47.41    0.62    55.32    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.03
+sdc              0.63     13.17     0.06   8.57    0.12    20.96    0.26      2.36     0.34  57.14    0.56     9.23    0.00      0.00     0.00   0.00    0.00     0.00    0.01    3.00    0.00   0.01
+sdd            247.86  31472.05    49.56  16.66    2.59   126.98   23.97    205.54    13.64  36.27   10.02     8.57    1.22    246.75     0.11   8.33    0.55   201.58    2.85    1.29    0.89   9.47
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.00    0.00    0.25    0.00    0.00   99.75
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.00    0.00    0.00    0.13    0.00   99.87
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sdd              0.00      0.00     0.00   0.00    0.00     0.00    2.00     20.00     0.00   0.00    3.00    10.00    0.00      0.00     0.00   0.00    0.00     0.00    2.00    2.00    0.01   0.40
+
+

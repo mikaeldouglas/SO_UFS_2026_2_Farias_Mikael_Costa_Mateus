@@ -25,13 +25,17 @@ def summarize(df, by, cols, name):
 
 
 def save(name):
-    plt.tight_layout(); plt.savefig(FIG / name, dpi=150); plt.close()
+    plt.tight_layout(); plt.savefig(FIG / name, dpi=150, bbox_inches="tight"); plt.close()
 
 
-def bars(df, index, columns, value, title, ylabel, fname, logy=False):
+def bars(df, index, columns, value, title, ylabel, fname, logy=False, labels=False):
     pv = df.pivot_table(index=index, columns=columns, values=value, aggfunc="mean")
-    ax = pv.plot.bar(figsize=(9, 4.5), logy=logy)
+    ax = pv.plot.bar(figsize=(10, 4.5), logy=logy)
     ax.set_title(title); ax.set_ylabel(ylabel); plt.xticks(rotation=35, ha="right")
+    ax.legend(title=pv.columns.name, bbox_to_anchor=(1.01, 1), loc="upper left", fontsize=8)  # legenda fora das barras
+    if labels:  # mostra os valores (inclusive 0, que a escala log não desenha)
+        for c in ax.containers:
+            ax.bar_label(c, fmt="%.0f", fontsize=6, rotation=90, padding=2)
     save(fname)
 
 
@@ -44,7 +48,7 @@ def c1c2():
     for m, yl, ln in (("t_total", "Tempo total (s)", True), ("rss_mb", "RSS (MB)", False),
                       ("vsz_mb", "VSZ (MB)", False), ("d_majflt", "Faltas de página maiores", True),
                       ("d_minflt", "Faltas de página menores", True)):
-        bars(df, "cfg", "dataset", m, f"C1 (read) x C2 (mmap): {yl}", yl, f"c1c2_{m}.png", logy=ln)
+        bars(df, "cfg", "dataset", m, f"C1 (read) x C2 (mmap): {yl}", yl, f"c1c2_{m}.png", logy=ln, labels=m.startswith("d_"))
 
 
 def c3():
@@ -57,7 +61,8 @@ def c3():
         plt.figure(figsize=(7, 4.5))
         for (gm, qc), g in df.groupby(["gen_mode", "queue_cap"]):
             s = g.groupby("workers")[m].agg(["mean", "std"]).fillna(0)
-            plt.errorbar(s.index, s["mean"], yerr=s["std"], marker="o", capsize=3, label=f"{gm}, fila={qc}")
+            plt.errorbar(s.index, s["mean"], yerr=s["std"], marker="o" if gm == "sleep" else "s",
+                         ls="-" if qc == 8 else "--", capsize=3, label=f"{gm}, fila={qc}")
         plt.xticks(sorted(df["workers"].unique())); plt.xlabel("Workers"); plt.ylabel(yl); plt.title(f"C3: {yl} x workers"); plt.legend()
         save(f"c3_{m}.png")
 
@@ -86,15 +91,23 @@ def c5():
     df = load("c5_memory")
     if df is None:
         return
-    summarize(df, ["dataset", "batch", "status"], ["peak_rss_mb", "t_compute", "d_majflt", "d_pswpout", "max_swap_mb"], "c5")
-    ok = df[df["status"] == "ok"]
+    ok = df[df["status"] == "ok"].copy()
+    if "perfil" not in ok:  # perfil da VM inferido: no perfil restrito (4 GB) MemAvailable cai a poucas dezenas de MB
+        ok["perfil"] = ok["min_avail_mb"].apply(lambda v: "restrito 4GB" if v < 1000 else "normal 16GB")
+    cols = ["peak_rss_mb", "t_compute", "d_majflt", "d_pswpout", "max_swap_mb"]
+    summarize(ok, ["dataset", "perfil", "batch"], cols, "c5_por_perfil")
     for m, yl in (("peak_rss_mb", "RSS de pico (MB)"), ("t_compute", "Tempo de cálculo (s)"),
-                  ("d_majflt", "Faltas maiores"), ("d_pswpout", "Páginas enviadas ao swap")):
-        plt.figure(figsize=(7, 4.5))
-        for ds, g in ok.groupby("dataset"):
-            s = g.groupby("batch")[m].mean(); plt.plot(s.index, s.values, marker="o", label=ds)
-        plt.xscale("log"); plt.xlabel("Lote (consultas por vez)"); plt.ylabel(yl); plt.title(f"C5: {yl}"); plt.legend()
-        save(f"c5_{m}.png")
+                  ("d_majflt", "Faltas maiores"), ("d_pswpout", "Páginas enviadas ao swap"),
+                  ("max_swap_mb", "Swap usado, pico (MB)")):
+        plt.figure(figsize=(8, 4.8))
+        for (ds, pf), g in ok.groupby(["dataset", "perfil"]):
+            s_ = g.groupby("batch")[m].mean()
+            plt.plot(s_.index, s_.values, marker="o", ls="--" if pf.startswith("restrito") else "-",
+                     label=f"{ds.split('/')[-1]} ({pf})")
+        plt.xscale("log")
+        plt.yscale("log" if m == "t_compute" else "symlog", **({} if m == "t_compute" else {"linthresh": 1}))
+        plt.xlabel("Lote (consultas por vez)"); plt.ylabel(yl); plt.title(f"C5: {yl} (por perfil de memória)")
+        plt.legend(fontsize=8); save(f"c5_{m}.png")
 
 
 def c6():

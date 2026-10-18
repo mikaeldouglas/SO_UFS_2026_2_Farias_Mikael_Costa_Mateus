@@ -1,0 +1,79 @@
+### ps -L (threads)
+    PID     TID %CPU STAT NLWP COMMAND
+   9036    9036  7.4 Sl+    15 python
+   9036    9038 97.4 Rl+    15 python
+   9036    9039 97.4 Rl+    15 python
+   9036    9040 96.4 Rl+    15 python
+   9036    9041 97.4 Rl+    15 python
+   9036    9042 96.4 Rl+    15 python
+   9036    9043 96.4 Rl+    15 python
+   9036    9044 90.8 Rl+    15 python
+   9036    9045  0.0 Sl+    15 Thread-1
+   9036    9046  2.7 Sl+    15 Thread-2 (worke
+   9036    9047  3.8 Sl+    15 Thread-3 (worke
+   9036    9048  1.6 Sl+    15 Thread-4 (worke
+   9036    9049  2.2 Sl+    15 Thread-5 (worke
+   9036    9050  0.0 Sl+    15 Thread-6 (produ
+   9036    9051  0.0 Sl+    15 Thread-7 (produ
+
+### /proc/9036/status
+Name:	python
+VmSize:	 1041136 kB
+VmRSS:	   74284 kB
+VmSwap:	       0 kB
+Threads:	15
+voluntary_ctxt_switches:	21
+nonvoluntary_ctxt_switches:	16
+
+### smaps_rollup
+00400000-7ffcc990a000 ---p 00000000 00:00 0                              [rollup]
+Rss:               74284 kB
+Pss:               64572 kB
+Pss_Dirty:         46944 kB
+Pss_Anon:          46944 kB
+Pss_File:          17628 kB
+Pss_Shmem:             0 kB
+Shared_Clean:      13840 kB
+Shared_Dirty:          0 kB
+Private_Clean:     13500 kB
+Private_Dirty:     46944 kB
+Referenced:        74284 kB
+Anonymous:         46944 kB
+KSM:                   0 kB
+LazyFree:              0 kB
+AnonHugePages:     20480 kB
+ShmemPmdMapped:        0 kB
+FilePmdMapped:         0 kB
+Shared_Hugetlb:        0 kB
+Private_Hugetlb:       0 kB
+Swap:                  0 kB
+SwapPss:               0 kB
+Locked:                0 kB
+
+### arquivos abertos
+total 0
+lr-x------ 1 mateus mateus 64 Oct 18 00:50 0 -> /dev/null
+l-wx------ 1 mateus mateus 64 Oct 18 00:50 1 -> /dev/null
+lrwx------ 1 mateus mateus 64 Oct 18 00:50 2 -> /dev/pts/0
+lr-x------ 1 mateus mateus 64 Oct 18 00:50 3 -> /usr/lib/x86_64-linux-gnu/libffi.so.8.2.0
+l-wx------ 1 mateus mateus 64 Oct 18 00:50 4 -> /home/mateus/genresearch-servidor/results/logs/evidence.log
+lr-x------ 1 mateus mateus 64 Oct 18 00:50 5 -> /home/mateus/genresearch-servidor/data/small/meta.sqlite
+lr-x------ 1 mateus mateus 64 Oct 18 00:50 6 -> /home/mateus/genresearch-servidor/data/small/meta.sqlite
+lr-x------ 1 mateus mateus 64 Oct 18 00:50 7 -> /home/mateus/genresearch-servidor/data/small/meta.sqlite
+lr-x------ 1 mateus mateus 64 Oct 18 00:50 8 -> /home/mateus/genresearch-servidor/data/small/meta.sqlite
+
+### pstree
+python(9036)-+-{python}(9038)
+             |-{python}(9039)
+             |-{python}(9040)
+             |-{python}(9041)
+             |-{python}(9042)
+             |-{python}(9043)
+             |-{python}(9044)
+             |-{python}(9045)
+             |-{python}(9046)
+             |-{python}(9047)
+             |-{python}(9048)
+             |-{python}(9049)
+             |-{python}(9050)
+             `-{python}(9051)

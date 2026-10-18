@@ -1,0 +1,10 @@
+scenario,completed_mean,completed_median,completed_p95,failed_mean,failed_median,failed_p95,dropped_mean,dropped_median,dropped_p95,retries_mean,retries_median,retries_p95,wall_s_mean,wall_s_median,wall_s_p95
+arquivo_ausente,,,,,,,,,,,,,,,
+fila_cheia_block,200.0,200.0,200.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,13.1954,13.185,13.2297
+fila_cheia_reject,3.0,3.0,3.0,0.0,0.0,0.0,197.0,197.0,197.0,0.0,0.0,0.0,0.2403,0.2454,0.2506
+fila_cheia_retry,146.6667,147.0,147.0,0.0,0.0,0.0,53.3333,53.0,53.9,0.0,0.0,0.0,9.6651,9.6556,9.7366
+indice_fora_com_retry,200.0,200.0,200.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0,5.0,5.0,3.4757,3.4735,3.5054
+indice_fora_sem_retry,195.0,195.0,195.0,5.0,5.0,5.0,0.0,0.0,0.0,5.0,5.0,5.0,3.2876,3.2862,3.2991
+recuperacao_pos_arquivo,200.0,200.0,200.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.3782,3.3663,3.4062
+servico_falha_com_retry,198.6667,199.0,199.0,1.3333,1.0,1.9,0.0,0.0,0.0,56.3333,57.0,65.1,4.1363,4.1765,4.2372
+servico_falha_sem_retry,156.3333,157.0,160.6,43.6667,43.0,48.4,0.0,0.0,0.0,43.6667,43.0,48.4,2.6822,2.6705,2.7774

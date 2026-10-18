@@ -1,0 +1,5 @@
+cfg,lost_counter_updates_mean,lost_counter_updates_median,lost_counter_updates_p95,max_len_mean,max_len_median,max_len_p95,wall_s_mean,wall_s_median,wall_s_p95
+com lock/gap=False,0.0,0.0,0.0,50.0,50.0,50.0,0.0541,0.0556,0.0584
+com lock/gap=True,0.0,0.0,0.0,50.0,50.0,50.0,12.2364,12.2988,12.3314
+sem lock/gap=False,0.0,0.0,0.0,50.0,50.0,50.0,0.0465,0.046,0.048
+sem lock/gap=True,20103.6667,20079.0,20155.5,50.0,50.0,50.0,6.2718,6.3147,6.3354

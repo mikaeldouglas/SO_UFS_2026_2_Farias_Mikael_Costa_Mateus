@@ -1,0 +1,3 @@
+cfg,lost_mean,lost_median,lost_p95,duplicated_mean,duplicated_median,duplicated_p95,wall_s_mean,wall_s_median,wall_s_p95
+com mutex,0.0,0.0,0.0,0.0,0.0,0.0,3.7924,3.7949,3.8219
+sem mutex,3772.6667,3791.0,3889.1,3772.6667,3791.0,3889.1,1.57,1.5647,1.6375

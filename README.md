@@ -137,10 +137,16 @@ detalhado de cada etapa está em [GUIA.md](GUIA.md).
 | `results/*.csv` | resultados brutos, uma linha por execução |
 | `results/summary_*.csv` | média, mediana e p95 por configuração |
 | `results/figures/*.png` | gráficos |
-| `results/logs/` | logs de eventos de cada execução |
+| `results/logs/` | logs de eventos de cada execução (gerados ao rodar; não versionados) |
 | `results/monitor/` | `vmstat`, `iostat` e `/proc/meminfo` antes e depois |
-| `results/evidence/` | `strace`, threads e memória do processo |
-| `results/env_*.txt` | ambiente de cada perfil |
+| `results/evidence/` | `strace`, threads e memória do processo (saída de `scripts/evidence.sh`) |
+| `results/env_*.txt` | ambiente de cada perfil (saída de `scripts/env_info.sh`) |
+
+**Resultados das medições entregues** (17–18/10/2026, máquina descrita abaixo): os CSVs brutos e
+resumos estão em `results/`, as figuras em `results/figures/`, o monitoramento em
+`results/monitor/` e as evidências do sistema em `results/evidencias/` (`env_normal.txt`,
+`env_restrita.txt`, `env_venv.txt`, `server_processos_threads.txt`, `strace_read_resumo.txt` e
+`strace_mmap_resumo.txt`).
 
 ## Ambiente das medições
 
@@ -148,7 +154,7 @@ Windows com WSL2 (Ubuntu 26.04, kernel 6.18 WSL2); host Intel Xeon E5-2680 v4 (1
 28 threads, 2,40 GHz), 32 GB de RAM e GPU RTX 3060 12 GB (não usada na carga simulada). VM com
 8 vCPUs e dois perfis: normal (16 GB de RAM + 8 GB de swap) e restrito (4 GB + 4 GB, só no C5
 fase 2). Python 3.14, NumPy, pandas, psutil e matplotlib. Detalhes completos em
-`results/env_normal.txt` e `results/env_restrita.txt`.
+`results/evidencias/env_normal.txt` e `results/evidencias/env_restrita.txt`.
 
 ## Principais resultados
 

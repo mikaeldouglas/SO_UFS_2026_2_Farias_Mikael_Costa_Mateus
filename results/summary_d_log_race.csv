@@ -1,0 +1,3 @@
+cfg,corrupted_lines_mean,corrupted_lines_median,corrupted_lines_p95,wall_s_mean,wall_s_median,wall_s_p95
+com lock,0.0,0.0,0.0,2.0198,2.0058,2.0489
+sem lock,15497.0,15503.0,15523.7,4.3448,4.3315,4.3765

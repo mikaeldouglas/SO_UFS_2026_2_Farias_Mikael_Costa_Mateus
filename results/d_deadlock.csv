@@ -1,0 +1,4 @@
+rep,timestamp,deadlock_detected,recovered_with_lock_ordering,events
+1,2026-10-18T00:48:28,True,True,T1: TIMEOUT esperando B (espera circular detectada); libera A | T2: obteve B+A
+2,2026-10-18T00:48:59,True,True,T1: TIMEOUT esperando B (espera circular detectada); libera A | T2: obteve B+A
+3,2026-10-18T00:49:31,True,True,T1: TIMEOUT esperando B (espera circular detectada); libera A | T2: obteve B+A
