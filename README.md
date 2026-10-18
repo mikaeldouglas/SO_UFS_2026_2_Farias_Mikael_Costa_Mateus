@@ -82,7 +82,7 @@ nunca em `/mnt/c`, porque o acesso ao disco do Windows distorce as medições de
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-venv sysstat strace psmisc git
-git clone <URL_DESTE_REPOSITORIO> && cd SO_UFS_2026_2_Farias_Mikael_Costa_Mateus
+git clone https://github.com/mikaeldouglas/SO_UFS_2026_2_Farias_Mikael_Costa_Mateus.git && cd SO_UFS_2026_2_Farias_Mikael_Costa_Mateus
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 scripts/wsl_check.sh           # confere caminho, RAM/swap, CPUs e ferramentas
