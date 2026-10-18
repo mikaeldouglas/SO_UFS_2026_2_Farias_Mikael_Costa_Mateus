@@ -1,0 +1,9 @@
+data/
+.env
+*.env
+__pycache__/
+*.pyc
+*.gguf
+*.safetensors
+.venv/
+.DS_Store

@@ -1,0 +1,16 @@
+# Máquina de testes: 32 GB RAM, Xeon E5-2680 v4 (28 threads), RTX 3060 12 GB
+# Copie para  C:\Users\<SEU_USUARIO>\.wslconfig   e depois, no PowerShell:  wsl --shutdown
+# --- Perfil NORMAL (C1-C4, C6, Parte D, C5 fase 1) ---
+[wsl2]
+memory=16GB
+processors=8
+swap=8GB
+
+[experimental]
+autoMemoryReclaim=disabled
+
+# --- Perfil RESTRITO (C5 fase 2, pressão de memória/swap): troque os valores acima por ---
+# memory=4GB
+# processors=8
+# swap=4GB
+# (sem large: memory=2GB e swap=2GB)
