@@ -1,9 +1,5 @@
 # GUIA — Como executar a AV2 do zero (GenResearch-Servidor) — versão WSL2
 
-Prazo: **20/10/2026 23h59** (repositório + relatório + vídeo). Apresentação: **21/10**.
-O foco da nota é **evidência experimental + explicação em termos de SO**, não a qualidade das respostas.
-
----
 ## 0-A. Preparar o WSL2 (faça ANTES de tudo; ~30 min)
 O WSL2 é uma VM leve do Windows. Isso muda **como interpretar** memória, cache e disco, então configurem e documentem. A **máquina principal de testes** (referência para os números finais): Windows + WSL2, **32 GB de RAM**, **Intel Xeon E5-2680 v4 (14 núcleos/28 threads, 2,40 GHz)**, **GPU NVIDIA RTX 3060 12 GB**. Os demais integrantes desenvolvem e testam em escala pequena (`small`); **não misturem números de máquinas diferentes** nos mesmos gráficos.
 
@@ -188,32 +184,3 @@ Os resultados brutos ficam em `results/*.csv` (uma linha por execução, com tim
 
 **Dica de correção metodológica:** reporte **média, mediana e p95** (`summary_*.csv`), cite o nº de repetições, e comente variabilidade (barras de erro nos gráficos de C3). Evite conclusões fortes com diferenças menores que o desvio-padrão.
 
----
-## 6. Relatório (8–12 páginas, PDF) — roteiro
-1. Tabela de contribuição · 2. Introdução, problema e pergunta norteadora · 3. Ambiente (de `env_normal.txt` e `env_restrita.txt`) · 4. Arquitetura (use o diagrama do README) · 5. Dados, corpus, embeddings, índice e cache (tamanhos do `manifest.json`) · 6. Processos, threads, filas e recursos compartilhados (`results/evidence/`) · 7. Estratégia de sincronização · 8. Metodologia (comandos, fatores, 3 repetições, data/hora) · 9. Resultados (gráficos + tabelas) · 10. Análise de memória/armazenamento/paginação/E-S · 11. Análise de concorrência/cache/correção · 12. Relação com SO e IA generativa · 13. Limitações · 14. Conclusão · 15. Referências (livro-texto de SO, man pages `mmap(2)`, `proc(5)`, doc. Python `threading`/`queue`, etc.).
-Cada gráfico: título, eixos com unidade, legenda e **um parágrafo interpretando** (o que mudou, por quê, qual mecanismo do SO explica). Atribuam o uso de IA/códigos de terceiros.
-
-## 7. Apresentação e vídeo
-- 10–12 min na apresentação; **todos falam**; vídeo ≤ 20 min com todos. Roteiro: problema → ambiente → arquitetura → configurações → demo rápida (`d_sync` mostrando falha e correção) → gráficos principais → memória/mmap → limitações.
-- URL do vídeo em **README, relatório e VIDEO.md**.
-- Treinem perguntas: “por que `MemAvailable` e não `MemFree`?”, “por que mmap não é sempre mais rápido?”, “o que é falta de página maior/menor?”, “por que threads não aceleraram a carga CPU?”, “qual das 4 condições de deadlock vocês quebraram?”.
-
-## 8. Cronograma (hoje é sábado 17/10 — faltam 3 dias; plano comprimido)
-| Quando | Meta | Quem |
-|---|---|---|
-| **Sáb 17/10 (manhã)** | WSL2 configurado (0-A), repo clonado em `~/`, `wsl_check.sh` ok, dados small/medium gerados, servidor testado | todos |
-| **Sáb 17/10 (tarde/noite)** | Perfil normal: Parte A, C1/C2, C3, C3b, C4, C6, Parte D, `evidence.sh` (rodar em **uma** máquina; ~1 h com `run_all.sh` reduzido) | equipe de experimentos |
-| **Dom 18/10 (manhã)** | Perfil restrito (4 GB): C5 fase 2 (swap); depois `plots.py`; commit dos resultados | experimentos |
-| **Dom 18/10 (tarde)** | Relatório (resultados e análises) em paralelo: ambiente/arquitetura/metodologia por uma pessoa, análises por outras; slides | todos |
-| **Seg 19/10** | Relatório completo, README, contribuições, gravar vídeo (todos), URL em 3 lugares | todos |
-| **Ter 20/10** | Revisão final, clone limpo testado, **entregar antes das 23h59** (evite o último minuto; a apresentação é 21/10) | todos |
-
-**Corte de escopo se o tempo apertar:** mantenha 3 repetições, mas use só `small`+`medium` (sem `large`; nesse caso, na fase 2 do C5 use `memory=2GB`, `--datasets data/medium --batches 256 512 1024 --allow-swap --max-mb 3000`); em C3 reduza `--requests 150`; no C5 use `--reps 2` e documente. Nunca omitam C1–C4 nem a Parte D.
-
-## 9. Checklist de entrega
-- [ ] `.wslconfig` (ambos perfis) e `env_normal/env_restrita.txt` anexados
-- [ ] Repositório público com nome correto; clone limpo roda `run_all.sh` (ou passos do guia)
-- [ ] README: instruções, dependências, ambiente, vídeo, contribuições
-- [ ] `results/` com CSV brutos, logs, `env.txt`, `monitor/`, `evidence/`, `figures/`
-- [ ] Nenhum `.env`, chave, dado pessoal, peso de modelo, nem `data/` gigante no Git
-- [ ] Relatório PDF 8–12 páginas · slides PDF · vídeo ≤ 20 min com URL em 3 lugares
