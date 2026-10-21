@@ -14,18 +14,21 @@ uma aplicação de IA generativa ou de RAG?
 
 ## Vídeo da atividade
 
-**URL:** `<COLAR URL AQUI>` (também em [VIDEO.md](VIDEO.md) e no relatório)
+**URL:** https://drive.google.com/file/d/10pZd0h0Zme_1stEf2vnYVxcHaKnWg8qO/view (também em [VIDEO.md](VIDEO.md) e no relatório)
 
 ## Equipe e contribuição individual
 
+Responsabilidades de cada integrante, conforme a divisão por frentes definida pela equipe em
+14/10/2026 (a mesma tabela está no relatório).
+
 | Integrante | Frente | Contribuição |
 |---|---|---|
-| Mikael Douglas Santos Farias | 1 — Núcleo do sistema | Repositório, README e instruções de reprodução, documentação da arquitetura e dos dados, demonstração do núcleo no vídeo |
-| Douglas de Oliveira Deda | 2 — Fila e atendentes | _a preencher_ |
-| Lucas Conceição Celestino | 3 — Cache e sincronização | _a preencher_ |
-| Mateus do Rosario Costa | 4 — Memória e arquivos | Implementação do código e execução das medições C1–C6 e Parte D (_completar_) |
-| Paulo Gabriel de Oliveira Cardoso | 5 — Ambiente e medições | _a preencher_ |
-| Cadmo Octavio José do Nascimento Neto | 6 — Relatório e apresentação | _a preencher_ |
+| Mateus do Rosario Costa | 4 — Memória e arquivos | Implementou o GenResearch-Servidor (ingestão, armazenamento, fila, cache, log e scripts dos experimentos), executou todas as medições (C1–C6 e Parte D), analisou read × mmap (C1/C2) e pressão de memória (C5) e redigiu o relatório |
+| Mikael Douglas Santos Farias | 1 — Núcleo do sistema | Organizou o repositório público, escreveu este README com as instruções de reprodução e o VIDEO.md, revisou o código e o relatório (instruções de reprodução, commit e anexos), documentou a arquitetura e os dados e montou a apresentação |
+| Douglas de Oliveira Deda | 2 — Fila e atendentes | Análise e apresentação da fila limitada, dos workers e da concorrência (C3); participação no vídeo |
+| Lucas Conceição Celestino | 3 — Cache e sincronização | Análise e apresentação do cache compartilhado (C4) e da sincronização (Parte D); participação no vídeo |
+| Paulo Gabriel de Oliveira Cardoso | 5 — Ambiente e medições | Apresentação do problema, da pergunta norteadora e do ambiente experimental; participação no vídeo |
+| Cadmo Octavio José do Nascimento Neto | 6 — Relatório e apresentação | Apresentação das falhas controladas (C6), das evidências do kernel e das conclusões; participação no vídeo |
 
 ## Arquitetura
 
