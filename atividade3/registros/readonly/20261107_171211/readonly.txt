@@ -1,0 +1,23 @@
+== identidade ==
+uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
+== capabilities e no_new_privs do processo ==
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+NoNewPrivs:	1
+== montagem de /dados (procure ro) ==
+911 902 8:48 /home/<usuario>/SO_UFS_2026_2_costa_mateus/atividade3/dados_demo /dados ro,relatime - ext4 /dev/sdd rw,discard,errors=remount-ro,data=ordered
+== leitura ==
+Documento sintetico
+leitura_codigo=0
+== tentativa de escrita em /dados ==
+touch: cannot touch '/dados/novo.txt': Read-only file system
+escrita_dados_codigo=1
+== controle: escrita em /tmp do proprio conteiner ==
+escrita_tmp_codigo=0
+== conteudo de /dados depois ==
+total 12
+drwxr-xr-x 2 1000 1000 4096 Nov  7 14:48 .
+drwxr-xr-x 1 root root 4096 Nov  7 20:12 ..
+-rw-r--r-- 1 1000 1000   20 Nov  7 14:48 texto.txt
+codigo_saida_conteiner=0

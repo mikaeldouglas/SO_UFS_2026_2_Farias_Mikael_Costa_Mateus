@@ -1,0 +1,26 @@
+flowchart TB
+  HW["Hardware: 8 CPUs lógicas, ~16 GB RAM"]
+  HV["Hypervisor Hyper-V (tipo 1)"]
+  WIN["Windows<br/>partição raiz"]
+  subgraph VM["VM utilitária do WSL2"]
+    K["Kernel Linux único<br/>6.18.54.1-microsoft-standard-WSL2<br/>namespaces · cgroup v2 · seccomp"]
+    subgraph U["Distro Ubuntu 26.04.1 LTS"]
+      T["Terminal bash<br/>scripts do kit"]
+      D["Docker Engine 29.9.3<br/>dockerd · containerd · runc"]
+      subgraph A["so_atv3_ns_A"]
+        PA["PID 1: sleep<br/>(PID 3623 no host)"]
+      end
+      subgraph B["so_atv3_ns_B"]
+        PB["PID 1: sleep<br/>(PID 3678 no host)"]
+      end
+      subgraph C["C1 / C2"]
+        PC["python carga_cpu.py<br/>cpu.max · memory.max · pids.max"]
+      end
+    end
+  end
+  HW --> HV
+  HV --> WIN
+  HV --> VM
+  T -->|docker CLI| D
+  D --> A & B & C
+  K -. "um kernel para todos os processos" .- U

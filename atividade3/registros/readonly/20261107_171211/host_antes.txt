@@ -1,0 +1,4 @@
+total 12
+drwxr-xr-x 2 <usuario> <usuario> 4096 Nov  7 11:48 .
+drwxr-xr-x 4 <usuario> <usuario> 4096 Nov  7 17:11 ..
+-rw-r--r-- 1 <usuario> <usuario>   20 Nov  7 11:48 texto.txt

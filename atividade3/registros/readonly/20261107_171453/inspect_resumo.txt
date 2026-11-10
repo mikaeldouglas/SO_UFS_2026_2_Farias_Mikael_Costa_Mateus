@@ -1,0 +1,1 @@
+SecurityOpt=["no-new-privileges:true"] CapDrop=["ALL"] User=65534:65534 Mounts=[{"Type":"bind","Source":"/home/<usuario>/SO_UFS_2026_2_costa_mateus/atividade3/dados_demo","Destination":"/dados","Mode":"ro","RW":false,"Propagation":"rprivate"}]

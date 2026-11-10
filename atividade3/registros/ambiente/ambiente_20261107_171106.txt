@@ -1,0 +1,81 @@
+
+===== Data da coleta =====
+2026-11-07T17:11:06-03:00
+
+===== Terminal (onde o comando foi digitado) =====
+$ uname -a
+Linux <host> 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
+$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+$ nproc
+8
+MemTotal:       16379572 kB
+SwapTotal:       8388608 kB
+Indicio: kernel WSL2 (/proc/version cita Microsoft)
+systemd-detect-virt: wsl
+cgroup v2 no terminal. Controladores na raiz:
+cpuset cpu io memory hugetlb pids rdma
+
+===== Docker: versoes =====
+$ docker version --format Cliente={{.Client.Version}} Servidor={{.Server.Version}} API={{.Server.APIVersion}}
+Cliente=29.9.3 Servidor=29.9.3 API=1.56
+$ docker compose version
+Docker Compose version v5.7.0
+
+===== Docker: daemon (o Linux que realmente roda os conteineres) =====
+$ docker info --format SO_do_daemon={{.OperatingSystem}}
+Kernel_do_daemon={{.KernelVersion}}
+Arquitetura={{.Architecture}}
+CPUs_daemon={{.NCPU}}
+RAM_daemon_bytes={{.MemTotal}}
+Cgroup={{.CgroupVersion}}
+Driver={{.CgroupDriver}}
+Runtime_padrao={{.DefaultRuntime}}
+Opcoes_seguranca={{json .SecurityOptions}}
+Avisos={{json .Warnings}}
+SO_do_daemon=Ubuntu 26.04.1 LTS
+Kernel_do_daemon=6.18.54.1-microsoft-standard-WSL2
+Arquitetura=x86_64
+CPUs_daemon=8
+RAM_daemon_bytes=16772681728
+Cgroup=2
+Driver=systemd
+Runtime_padrao=runc
+Opcoes_seguranca=["name=seccomp,profile=builtin","name=cgroupns"]
+Avisos=null
+
+===== Imagem =====
+$ docker pull python:3.12-slim
+3.12-slim: Pulling from library/python
+Digest: sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54
+Status: Image is up to date for python:3.12-slim
+docker.io/library/python:3.12-slim
+IMAGEM_LAB=python@sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54
+Digest gravado em imagem.env
+
+===== Visao de dentro de um conteiner (--network none) =====
+$ docker run --rm --network none python@sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54 sh -c 
+      echo "kernel visto no conteiner: $(uname -r)";
+      echo "/proc/self/cgroup: $(cat /proc/self/cgroup)";
+      printf "controladores no cgroup do conteiner: ";
+      cat /sys/fs/cgroup/cgroup.controllers 2>/dev/null || echo "INDISPONIVEL";
+      grep " /sys/fs/cgroup " /proc/self/mountinfo || true
+kernel visto no conteiner: 6.18.54.1-microsoft-standard-WSL2
+/proc/self/cgroup: 0::/
+controladores no cgroup do conteiner: cpuset cpu io memory hugetlb pids rdma
+466 465 0:25 / /sys/fs/cgroup ro,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate
+
+===== Codigo =====
+Fora de um repositorio git

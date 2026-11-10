@@ -1,0 +1,10 @@
+ordem=1
+condicao=C2
+repeticao=1
+cpus_pedido=1.0
+iteracoes=60000000
+inicio=2026-11-07T17:26:58-03:00
+codigo_saida=0
+wall_host_s=10.299
+loadavg_antes=0.04 0.08 0.09
+docker_inspect=NanoCpus=1000000000 CpuQuota=0 CpuPeriod=0 Memory=268435456 MemorySwap=268435456 PidsLimit=64 OOMKilled=false ExitCode=0

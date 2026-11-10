@@ -1,5 +1,8 @@
 # GenResearch-Servidor — AV2 de Sistemas Operacionais (UFS, 2026.2)
 
+> **Atividade 3 (AV3) — namespaces e cgroups:** está na pasta [`atividade3/`](atividade3/), com README próprio,
+> registros brutos, gráfico, contribuições, declaração de IA e link do vídeo.
+
 Mini serviço de RAG (recuperação + geração) em Python, construído para medir como o Linux
 administra **memória, memória virtual, armazenamento, cache, filas e sincronização** sob uma
 carga inspirada em IA generativa. O objetivo não é a qualidade da resposta, e sim observar e

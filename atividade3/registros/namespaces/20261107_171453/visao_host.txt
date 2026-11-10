@@ -1,0 +1,13 @@
+Tentativa de ler os namespaces pelo /proc do terminal.
+Em Docker Desktop/daemon remoto o PID_host nao existe neste /proc.
+self_pid_ns=pid:[4026532214]
+self_mnt_ns=mnt:[4026532211]
+self_net_ns=net:[4026531833]
+host_A_pid=pid:[4026532277]
+host_A_mnt=mnt:[4026532217]
+host_A_net=net:[4026532368]
+host_A_comm=sleep
+host_B_pid=pid:[4026532431]
+host_B_mnt=mnt:[4026532428]
+host_B_net=net:[4026532433]
+host_B_comm=sleep

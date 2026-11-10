@@ -1,0 +1,13 @@
+Tentativa de ler os namespaces pelo /proc do terminal.
+Em Docker Desktop/daemon remoto o PID_host nao existe neste /proc.
+self_pid_ns=pid:[4026532214]
+self_mnt_ns=mnt:[4026532211]
+self_net_ns=net:[4026531833]
+host_A_pid=sem permissao/inexistente (tente sudo readlink /proc/2660/ns/pid)
+host_A_mnt=sem permissao/inexistente (tente sudo readlink /proc/2660/ns/mnt)
+host_A_net=sem permissao/inexistente (tente sudo readlink /proc/2660/ns/net)
+host_A_comm=sleep
+host_B_pid=sem permissao/inexistente (tente sudo readlink /proc/2716/ns/pid)
+host_B_mnt=sem permissao/inexistente (tente sudo readlink /proc/2716/ns/mnt)
+host_B_net=sem permissao/inexistente (tente sudo readlink /proc/2716/ns/net)
+host_B_comm=sleep

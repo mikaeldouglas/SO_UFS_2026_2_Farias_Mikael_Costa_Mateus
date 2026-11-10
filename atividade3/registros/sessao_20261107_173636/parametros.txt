@@ -1,0 +1,15 @@
+sessao=sessao_20261107_173636
+inicio=2026-11-07T17:36:36-03:00
+imagem=python@sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54
+iteracoes=60000000
+repeticoes=3
+memoria=256m
+memoria_swap=256m
+pids_limit=64
+cpus_C1=0.5
+cpus_C2=1.0
+limite_interno_s=60
+timeout_host_s=90
+ordem=1:C1 1:C2 2:C2 2:C1 3:C1 3:C2
+commit=sem_git
+fim=2026-11-07T17:39:06-03:00

@@ -1,0 +1,16 @@
+conteiner=so_atv3_ns_A_20261107_171453 (A)
+coletado_em=2026-11-07T17:14:55-03:00
+imagem=python@sha256:4840d514c583a4d3d8cad3940e68dee6f0f6f3635c12fcd0a3d74c21a5b93a54
+PID_host=3623   (PID no namespace do host do daemon)
+id=7462abe55faf
+comm_pid1=sleep
+pid_ns=pid:[4026532277]
+mnt_ns=mnt:[4026532217]
+net_ns=net:[4026532368]
+--- processos visiveis dentro (PIDs em /proc) ---
+1 sleep
+31 sh
+--- interfaces de rede visiveis (/proc/net/dev) ---
+    lo
+--- hostname (UTS) ---
+7462abe55faf

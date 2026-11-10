@@ -1,0 +1,6 @@
+recurso,handle_A,handle_B,iguais
+pid,pid:[4026532277],pid:[4026532431],nao
+mnt,mnt:[4026532217],mnt:[4026532428],nao
+net,net:[4026532368],net:[4026532433],nao
+pid1_comm,sleep,sleep,sim
+PID_host,2660,2716,nao
