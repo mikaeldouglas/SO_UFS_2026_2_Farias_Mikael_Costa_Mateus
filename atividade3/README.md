@@ -1,7 +1,7 @@
 # Atividade 3: namespaces e cgroups em conteineres Linux
 
 Equipe 07: Mateus do Rosario Costa, Cadmo Octavio Jose do Nascimento Neto, Douglas de Oliveira Deda, Lucas Conceicao Celestino, Mikael Douglas Santos Farias e Paulo Gabriel de Oliveira Cardoso. Contribuicoes em [CONTRIBUICOES.md](CONTRIBUICOES.md).
-Video: ver [VIDEO.md](VIDEO.md) (URL registrada la e no relatorio).
+Video: https://drive.google.com/file/d/1qcASW57Jz6_aa4FHu9KA9FQ_YXvfqyIE/view (ordem de fala em [VIDEO.md](VIDEO.md)).
 Commit da entrega: o commit que adicionou esta pasta (citado no relatorio). As medicoes foram feitas em 07/11/2026, antes do versionamento (`commit=sem_git` em `parametros.txt`).
 
 ## O que tem aqui
